@@ -75,9 +75,7 @@ export default class HTML extends PureComponent {
             ...HTMLRenderers,
             ...(this.props.renderers || {})
         };
-    }
 
-    componentWillMount () {
         this.generateDefaultStyles();
     }
 
@@ -85,8 +83,9 @@ export default class HTML extends PureComponent {
         this.registerDOM();
     }
 
-    componentWillReceiveProps (nextProps) {
-        const { html, uri, renderers } = this.props;
+    componentDidUpdate (prevProps, prevState) {
+        const { html, uri, renderers } = prevProps;
+        const nextProps = this.props;
 
         this.generateDefaultStyles(nextProps.baseFontStyle);
         if (renderers !== nextProps.renderers) {
