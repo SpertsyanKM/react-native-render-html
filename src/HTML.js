@@ -99,9 +99,7 @@ export default class HTML extends PureComponent {
             // to compute potential style changes
             this.parseDOM(this.state.dom, nextProps);
         }
-    }
 
-    componentDidUpdate (prevProps, prevState) {
         if (this.state.dom !== prevState.dom) {
             this.parseDOM(this.state.dom);
         }
