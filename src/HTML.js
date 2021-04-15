@@ -94,11 +94,12 @@ export default class HTML extends PureComponent {
         if (html !== nextProps.html || uri !== nextProps.uri) {
             // If the source changed, register the new HTML and parse it
             this.registerDOM(nextProps);
-        } else {
+        }
+        // else {
             // If it didn't, let's just parse the current DOM and re-render the nodes
             // to compute potential style changes
-            this.parseDOM(this.state.dom, nextProps);
-        }
+        //     this.parseDOM(this.state.dom, nextProps);
+        // }
 
         if (this.state.dom !== prevState.dom) {
             this.parseDOM(this.state.dom);
